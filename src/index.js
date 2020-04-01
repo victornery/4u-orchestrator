@@ -7,14 +7,17 @@ import registerServiceWorker from './registerServiceWorker';
 import { ThemeProvider } from 'styled-components'
 import Routing from '@components/Routing'
 import { theme } from '@utils/theme'
+import { StyledGlobal } from './style'
 
 const target = document.querySelector('#root');
 
 render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme.breakpoints}>
       <ConnectedRouter history={history}>
-        <Routing />
+        <StyledGlobal>
+          <Routing />
+        </StyledGlobal>
       </ConnectedRouter>
     </ThemeProvider>
   </Provider>,

@@ -1,5 +1,15 @@
 import React from 'react'
+import { StyledHeader, StyledLogo, StyleLogoIntro, StyleTitle } from './style'
 
-const Header = () => <header>Sou o Header</header>
+const Header = () => (	
+	<StyledHeader>
+		<StyleTitle>
+			Olá Fulando de Tal
+		</StyleTitle>
+		<StyledLogo>
+			
+		</StyledLogo>		
+	</StyledHeader>	
+)
 
 export default Header

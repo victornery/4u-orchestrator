@@ -8,6 +8,8 @@
     "rules": {
         "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],        
         "indent": ["warn", 2],
-        "prefer-destructuring": ["warn"]      
+        "prefer-destructuring": ["warn"],
+        "comma-dangle": ["error", "never"],
+        "semi": ["never"]
     }
 }

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const StyledGlobal = styled.a`
-    *,
+const GlobalStyle = createGlobalStyle`
+		*,
     *::after,
     *::before {
     margin: 0;
@@ -9,9 +9,11 @@ export const StyledGlobal = styled.a`
     box-sizing: border-box;
     border: 0;
     text-rendering: geometricPrecision;
-    }
-    
+		}
+						
     ul {
     list-style: none;
     }
 `
+
+export default GlobalStyle;

@@ -1,7 +1,6 @@
 import React, { Fragment} from 'react'
 import { Route, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-
 import Index from '@containers/index'
 import CreateCampaign from '@containers/createCampaign'
 import Me from '@containers/me'

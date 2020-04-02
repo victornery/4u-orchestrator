@@ -11,7 +11,6 @@ export const TitleName = styled.h1`
 	font-weight: 400;
 	font-size: 22px;
 	line-height: 59px;
-	/* identical to box height */
 	color: #FFFFFF;
 
 	${up('tablet')} {
@@ -19,7 +18,6 @@ export const TitleName = styled.h1`
 		top: 68px;
 		font-size: 48px;
 	}
-
 `
 export const NumberCampaigns = styled.p`
 	position: absolute;
@@ -47,8 +45,6 @@ export const  ActiveCampaigns = styled.p`
 	right: 0;
 	padding-right: 15px;
 	font-family: Montserrat;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 12px;
 	line-height: 20px;
 	color: #FFFFFF;
@@ -83,7 +79,7 @@ export const Button = styled.div`
 		width: 302px;
 		height: 419px;
 		
-		:last-child{
+		&:last-child {
 			margin-right: 0;
 		}
 	}

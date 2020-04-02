@@ -4,11 +4,7 @@ import Header from '@components/Header'
 class Index extends Component {
 
   render() {
-    return (
-      <Fragment>
-        <Header />
-      </Fragment>
-    )
+    return <Header />
   }
 }
 

@@ -6,6 +6,7 @@ import ImgGroup from '@assets/imgGroup.png'
 import imgCalendar from '@assets/imgCalendar.png'
 import imgCongratulation from '@assets/imgCongratulation.png'
 import imgSmartphone from '@assets/imgSmartphone.png'
+import TransitionModal from '@components/Modal'
 
 import { CampaignContainer, TextTop, Buttons } from './style'
 
@@ -43,7 +44,7 @@ function getStepContent(stepIndex) {
         <CampaignContainer >
           <img src={ImgGroup} />
           <p>Mensagem</p>
-          <input placeholder="cole, digite ou busque uma mensagem já enviada" />
+          <TransitionModal title="Mensagem" isMidia={true} placeholder="cole, digite ou busque uma mensagem já enviada" />
         </CampaignContainer>
       );
     case 2:
@@ -51,7 +52,7 @@ function getStepContent(stepIndex) {
         <CampaignContainer >
           <img src={ImgGroup} />
           <p>Mídia</p>
-          <input placeholder="Faça upload de uma nova mídia" />
+          <TransitionModal title="Mídia" isMidia={true} placeholder="Faça upload de uma nova mídia" />
         </CampaignContainer>
       );
     case 3:
@@ -59,7 +60,7 @@ function getStepContent(stepIndex) {
         <CampaignContainer >
           <img src={ImgGroup} />
           <p>Contatos</p>
-          <input />
+          <TransitionModal title="Contatos" isTable={true} />
         </CampaignContainer>
       );
     case 4:
@@ -74,7 +75,7 @@ function getStepContent(stepIndex) {
           </TextTop>
           <CampaignContainer >
             <img className="imgPhone" src={imgSmartphone} />
-            <input />
+            <TransitionModal isTable={true} />
           </CampaignContainer>
         </Fragment>
       );

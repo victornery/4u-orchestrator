@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 
+import ClearIcon from '@material-ui/icons/Clear';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
-import { ModalContent } from './style'
+import { ModalContent, InputModal, LineMidia, HeadModal } from './style'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal() {
+export default function TransitionsModal({ isMidia = false, isTable = false, title }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -36,9 +37,7 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        modal
-      </button>
+      <InputModal type="button" onClick={handleOpen} />
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -54,25 +53,54 @@ export default function TransitionsModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <ModalContent>
-              <SearchOutlinedIcon />
-              <h1>Contatos</h1>                
-              <table id="customers">
-                <tr>
-                  <th>Lista</th>
-                  <th>Contatos</th>
-                  <th>Último envio</th>
-                </tr>
-                <tr>
-                  <td>Nome da Lista</td>
-                  <td>1890 (1760 válidos)</td>
-                  <td>31/03/2020</td>
-                </tr>
-                <tr>
-                  <td>Nome da Lista</td>
-                  <td>1890 (1760 válidos)</td>
-                  <td>31/03/2020</td>
-                </tr>
-              </table>
+              {
+                !!isTable && (
+                  <Fragment>
+                    <HeadModal>
+                      <ClearIcon onClick={handleClose} />
+                      <SearchOutlinedIcon />
+                    </HeadModal>
+                    <h1>{title}</h1>
+                    <table>
+                      <tr>
+                        <th>Lista</th>
+                        <th>Contatos</th>
+                        <th>Último envio</th>
+                      </tr>
+                      <tr>
+                        <td>Nome da Lista</td>
+                        <td>1890 (1760 válidos)</td>
+                        <td>31/03/2020</td>
+                      </tr>
+                      <tr>
+                        <td>Nome da Lista</td>
+                        <td>1890 (1760 válidos)</td>
+                        <td>31/03/2020</td>
+                      </tr>
+                    </table>
+                  </Fragment>
+                )}
+              {
+                !!isMidia && (
+                  <Fragment>
+                    <HeadModal>
+                      <ClearIcon onClick={handleClose} />
+                      <SearchOutlinedIcon />
+                    </HeadModal>
+                    <h1>{title}</h1>
+                    <LineMidia>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </LineMidia>
+                    <LineMidia >
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </LineMidia>
+                    <p>Concluir</p>
+                  </Fragment>
+                )}
             </ModalContent>
           </div>
         </Fade>

@@ -1,7 +1,12 @@
 import React, { Component, Fragment } from 'react'
 
 import Header from '@components/Header'
+import Footer from '@components/Footer'
 import {TitleName, NumberCampaigns, ActiveCampaigns, ButtonsContainer, Button} from './style'
+
+import imgCampaign from '@assets/imgCampaign.png'
+import imgContacts from '@assets/imgContacts.png'
+import imgReport from '@assets/imgReport.png'
 
 class Me extends Component {
   render() {
@@ -13,15 +18,25 @@ class Me extends Component {
         <ActiveCampaigns>
           <p>Campanhas Ativas: 3</p>
           <p>Saldo: R$ 350,00</p>
-          </ActiveCampaigns>
-        
+        </ActiveCampaigns>
+     
         <ButtonsContainer>
-          <Button></Button>
-          <Button></Button>
-          <Button></Button>
+          <Button>
+            <img src={imgCampaign} />
+            <span>Campanha</span>
+          </Button>
+          <Button>
+            <img src={imgContacts} />
+            <span>Contatos</span>
+          </Button>
+          <Button>
+            <img src={imgReport} />
+            <span>Relatórios</span>
+          </Button>
         </ButtonsContainer>
+        <Footer />
 
-      </Fragment>
+      </Fragment>          
     )
   }
 }

@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
 
 import Header from '@components/Header'
+import HeaderContent from '@components/HeaderContent'
 import Footer from '@components/Footer'
-import {TitleName, NumberCampaigns, ActiveCampaigns, ButtonsContainer, Button} from './style'
+
+import { ButtonsContainer, Button} from './style'
 
 import imgCampaign from '@assets/imgCampaign.png'
 import imgContacts from '@assets/imgContacts.png'
@@ -13,13 +15,7 @@ class Me extends Component {
     return (                      
       <Fragment>
         <Header isLogged={true} />
-        <TitleName>Olá, Fulando de tal</TitleName> 
-        <NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
-        <ActiveCampaigns>
-          <p>Campanhas Ativas: 3</p>
-          <p>Saldo: R$ 350,00</p>
-        </ActiveCampaigns>
-     
+        <HeaderContent />
         <ButtonsContainer>
           <Button>
             <img src={imgCampaign} />

@@ -58,11 +58,11 @@ export const  ActiveCampaigns = styled.p`
 export const ButtonsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;	
-	margin: 120px 15px 105px 15px;
+	align-items: center;
 	${up('tablet')} {
 		flex-direction: row;
-		margin: 105px 175px 105px 175px;
+		margin-top: 105px;
+		justify-content: center;
 	}
 `
 
@@ -73,6 +73,19 @@ export const Button = styled.div`
 	width: 250px;
 	height: 300px;
 	margin-bottom: 20px;
+
+	img{
+		margin: 74px 41px 41px 41px;				
+	}
+
+	span{
+		color: #fff;
+		display: flex;
+		position: relative;
+		margin: 0 auto;
+		justify-content: center;
+		font-size: 24px;
+	}
 
 	${up('tablet')} {
 		margin-right: 92px;

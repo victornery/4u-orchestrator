@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-class CreateCampaign extends Component {
+class Campaign extends Component {
   render() {
     return (
       <Fragment>Página Create Campaign</Fragment>
@@ -8,4 +8,4 @@ class CreateCampaign extends Component {
   }
 }
 
-export default CreateCampaign
+export default Campaign

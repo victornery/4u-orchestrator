@@ -16,7 +16,7 @@ render(
     <ThemeProvider theme={theme.breakpoints}>
       <MThemeProvider theme={MTheme}>
         <ConnectedRouter history={history}>
-            <Routing />        
+          <Routing />        
         </ConnectedRouter>
       </MThemeProvider>
     </ThemeProvider>

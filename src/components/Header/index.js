@@ -1,5 +1,19 @@
-import React from 'react'
-import { StyledHeader, LogoHeader, Menu, MenuLine, MenuLine2, MenuLine3, LogoBgWhite, LogoBgPurple, TextLogo } from './style'
+import React, { Fragment } from 'react'
+import { 
+	StyledHeader,
+	LogoHeader,
+	Menu,
+	MenuLine,
+	MenuLine2,
+	MenuLine3,
+	LogoBgWhite,
+	LogoBgPurple,
+	TextLogo,
+	TitleName,
+	NumberCampaigns,
+	ActiveCampaigns,
+	UserHolder
+} from './style'
 
 const Header = ({ isLogged = false }) => {
 	
@@ -9,11 +23,21 @@ const Header = ({ isLogged = false }) => {
 	<StyledHeader>
 		{
 			!!isLogged && (
-				<Menu>
-					<MenuLine />
-					<MenuLine2 />
-					<MenuLine3 />
-				</Menu>
+				<Fragment>
+					<Menu>
+						<MenuLine />
+						<MenuLine2 />
+						<MenuLine3 />
+					</Menu>
+					<UserHolder>
+						<TitleName>Olá, Fulando de tal</TitleName> 
+						<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
+						<ActiveCampaigns>
+							<p>Campanhas Ativas: 3</p>
+							<p>Saldo: R$ 350,00</p>
+						</ActiveCampaigns>
+					</UserHolder>
+				</Fragment>
 			)
 		}
 		<LogoHeader>

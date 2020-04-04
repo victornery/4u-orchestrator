@@ -1,13 +1,21 @@
 import React from 'react'
 import { StyledHeader, LogoHeader, Menu, MenuLine, MenuLine2, MenuLine3, LogoBgWhite, LogoBgPurple, TextLogo } from './style'
 
-const Header = () => (
+const Header = ({ isLogged = false }) => {
+	
+	console.log(!!isLogged)
+
+	return (
 	<StyledHeader>
-		<Menu>
-			<MenuLine />
-			<MenuLine2 />
-			<MenuLine3 />
-		</Menu>
+		{
+			!!isLogged && (
+				<Menu>
+					<MenuLine />
+					<MenuLine2 />
+					<MenuLine3 />
+				</Menu>
+			)
+		}
 		<LogoHeader>
 			<LogoBgWhite>
 				<LogoBgPurple>
@@ -19,6 +27,7 @@ const Header = () => (
 			</LogoBgWhite>
 		</LogoHeader>
 	</StyledHeader>
-)
+	)
+}
 
 export default Header

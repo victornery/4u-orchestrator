@@ -1,3 +1,6 @@
+import { createMuiTheme } from '@material-ui/core/styles'
+import { purple } from '@material-ui/core/colors';
+
 export const theme = {
   breakpoints: {
     sm: '600px',
@@ -6,3 +9,17 @@ export const theme = {
     xl: '1920px'
   }
 }
+
+export const MTheme = createMuiTheme({
+  palette: {
+    primary: purple
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Montserrat'
+    ].join(',')
+  }
+})

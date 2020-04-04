@@ -7,7 +7,7 @@ class Me extends Component {
   render() {
     return (                      
       <Fragment>
-        <Header />
+        <Header isLogged={true} />
         <TitleName>Olá, Fulando de tal</TitleName> 
         <NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
         <ActiveCampaigns>

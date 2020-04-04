@@ -5,16 +5,13 @@ export const StyledHeader = styled.header`
 	position: relative;
 	width: 100%;
 	height: 200px;
-	left: 0px;
-	top: 0px;
-
 	background: #503366;
 	border: 1px solid #000000;
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 	${up('tablet')} {
-		height: 365px;
+		height: 40vh;
 	}
 
 `
@@ -53,15 +50,13 @@ export const MenuLine3 = styled.div`
 // End Style Menu Toggle
 
 // Logo
-export const LogoHeader = styled.div`         
-	position: relative;
-	display: flex;
-	margin: 0 auto;
-	top: 85%;
-	width: 127px;
-	height: 127px;	
+export const LogoHeader = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 50%);
 `
-export const LogoBgPurple = styled.div`	
+export const LogoBgPurple = styled.div`
 	width: 99px;
 	height: 99px;
 	margin: 0 auto;
@@ -72,7 +67,7 @@ export const LogoBgPurple = styled.div`
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
-export const LogoBgWhite = styled.div`	
+export const LogoBgWhite = styled.div`
 	width: 127px;
 	border-radius: 100px;
 	height: 127px;
@@ -81,25 +76,21 @@ export const LogoBgWhite = styled.div`
 `
 
 export const TextLogo = styled.div`
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: normal;
+	font-family: 'Montserrat';
 	font-size: 36px;
-	line-height: 44px;
+	line-height: 22px;
 	text-align: center;
-	display: flex;
-	flex-direction: column;
 	color: #FFFFFF;
-	padding-top: 18px
+	padding-top: 18px;
 	
-	h3{
+	& h3 {
 		font-size: 36px;
 		line-height: 30px;
-		font-weight: 400;
+		font-weight: 300;
+		display: block;
 	}
 
-	span{		
+	& span {
 		font-size: 24px
-		
 	}
 `

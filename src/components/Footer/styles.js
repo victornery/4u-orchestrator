@@ -3,14 +3,15 @@ import { up } from 'styled-breakpoints'
 
 export const StyledFooter = styled.footer`
   width: 100%;
-  border: 1px solid red;
-  border-color: red;
+  text-align: center;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  padding: 15px 0;
+`
 
-  ${up('tablet')} {
-    border-color: green;
-  }
-
-  ${up('desktop')} {
-    border-color: green;
-  }
+export const Trademark = styled.span`
+  font-size: 14px;
+  line-height: 17px;
+  color: #918699;
 `

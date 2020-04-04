@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyledFooter } from './styles'
+import { StyledFooter, Trademark } from './styles'
 
 const Footer = () => (
   <StyledFooter>
-    Oi, sou um Footer! :-)
+    <Trademark>Um produto Yousef Empreendimentos</Trademark>
   </StyledFooter>
 )
 

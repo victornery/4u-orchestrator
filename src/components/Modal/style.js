@@ -9,6 +9,12 @@ export const ModalContent = styled.div`
 		text-align: center;
 		margin-bottom: 20px;
 	}
+	
+	p{
+		display: flex;
+		flex-direction: row-reverse;
+
+	}
 
 	svg{
 		position: relative;
@@ -42,5 +48,40 @@ export const ModalContent = styled.div`
 	}
 	th:nth-child(2){
 		padding-right: 90px
+	}
+`
+export const InputModal = styled.input`
+	width: 800px;
+	height: 60px;
+	display: flex;
+	padding-left: 20px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	font-size: 16px;
+
+	:placeholder{
+		color: #918699;
+	}
+`
+export const LineMidia = styled.div`
+	display: flex;
+	div{
+		width: 250px;
+		height: 200px;
+		left: 313px;
+		margin-top: 10px;
+		background: #E8E8E8;
+	}
+	div:nth-child(2){
+		margin: 10px 20px;
+	}
+`
+export const HeadModal = styled.div`
+	display: flex;
+	justify-content: space-between;
+
+	svg{
+		cursor: pointer;
 	}
 `

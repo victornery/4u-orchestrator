@@ -14,8 +14,8 @@ export const Profile = styled.div`
 		line-height: 59px;
 		color: #848484;
 		text-align: center;
-		margin-top: 30px
-		margin-bottom: 80px;
+		margin-top: 30px;
+		margin-bottom: 70px;
 	}
 
 	li{

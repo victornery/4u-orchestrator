@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import {TitleName, NumberCampaigns, ActiveCampaigns, ButtonsContainer, Button} from './style'
+import imgCampaign from '@assets/imgCampaign.png';
+import imgContacts from '@assets/imgContacts.png';
+import imgReport from '@assets/imgReport.png';
 
 class Me extends Component {
   render() {

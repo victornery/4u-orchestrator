@@ -25,11 +25,7 @@ const Header = ({ isLogged = false }) => {
 		{
 			!!isLogged && (
 				<Fragment>
-					<Menu>
-						<MenuLine />
-						<MenuLine2 />
-						<MenuLine3 />
-					</Menu>
+					<Menu />
 					<UserHolder>
 						<TitleName>Olá, Fulando de tal</TitleName> 
 						<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>

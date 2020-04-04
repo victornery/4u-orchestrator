@@ -1,7 +1,14 @@
 import { create } from 'axios'
 
-const API = create({
-  baseURL: 'http://4u360.com.br:9099'
+const API_BASE = create({
+  baseURL: process.env.API_URL
 })
 
-export default API
+export const API = {
+  BASE: API_BASE,
+  LOGIN: API_BASE.get('/auth/local'),
+  CAMPAIGN: {
+    GET: API_BASE.get('/campaigns'),
+    POST: API_BASE.post('/campaigns'),
+  }
+}

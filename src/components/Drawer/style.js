@@ -10,11 +10,12 @@ export const Profile = styled.div`
 		padding-top: 30px;
 	}
 	p{
-		font-size: 30px;
+		font-size: 32px;
 		line-height: 59px;
 		color: #848484;
 		text-align: center;
-		margin-bottom: 100px;
+		margin-top: 30px
+		margin-bottom: 80px;
 	}
 
 	li{

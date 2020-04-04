@@ -14,6 +14,10 @@ const LoginSchema = Yup.object().shape({
   .required('Obrigatório')
 })
 
+const LoginConditions = (fields) => {
+
+}
+
 const Login = () => {
   return (
     <LoginHolder>
@@ -37,16 +41,27 @@ const Login = () => {
               helperText={(errors.user && touched.user) && errors.user}
               name="user"
               id="user"
-              type="text" label="Usuário, E-mail ou Telefone" />
+              value={values.user}
+              type="text"
+              label="Usuário, E-mail ou Telefone" />
+
               <StyledInput
               onChange={handleChange}
               onBlur={handleBlur}
               error={(errors.password && touched.password) && true}
               helperText={(errors.password && touched.password) && errors.password}
+              value={values.password}
               name="password"
               id="password"
-              type="password" label="Senha" />
-              <Button variant="contained" type="submit" onClick={() => console.log('teste')} size="large" color="primary">Entrar</Button>
+              type="password"
+              label="Senha" />
+              <Button
+                variant="contained"
+                type="submit"
+                disabled={(errors.password || errors.user || !values.user || !values.password) && true}
+                size="large"
+                color="primary"
+              >Entrar</Button>
             </Form>
           )
         }

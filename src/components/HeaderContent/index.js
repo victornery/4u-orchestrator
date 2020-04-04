@@ -4,7 +4,7 @@ import { TitleName, NumberCampaigns, ActiveCampaigns } from './style'
 const HeaderContent = () => {
 	return(
 		<Fragment>
-				<TitleName>Olá, Fulando de tal</TitleName> 
+				<TitleName>Olá, Fulando de tal</TitleName> 				
 				<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
 				<ActiveCampaigns>
 				<p>Campanhas Ativas: 3</p>

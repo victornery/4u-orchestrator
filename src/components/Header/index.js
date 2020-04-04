@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyledHeader, LogoHeader, Menu, MenuLine, MenuLine2, MenuLine3, LogoBgWhite, LogoBgPurple, TextLogo } from './style'
+import { StyledHeader, LogoHeader, LogoBgWhite, LogoBgPurple, TextLogo } from './style'
+import Drawer from '@components/Drawer'
 
 const Header = ({ isLogged = false }) => {
 	
@@ -9,11 +10,7 @@ const Header = ({ isLogged = false }) => {
 	<StyledHeader>
 		{
 			!!isLogged && (
-				<Menu>
-					<MenuLine />
-					<MenuLine2 />
-					<MenuLine3 />
-				</Menu>
+				<Drawer/>
 			)
 		}
 		<LogoHeader>

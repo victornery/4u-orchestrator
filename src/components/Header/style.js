@@ -27,26 +27,6 @@ export const Menu = styled.div`
 		left: 26px;
 	}
 `
-export const MenuLine = styled.div`
-	position: absolute;
-	width: 28px;
-	height: 5px;
-	background: #FFFFFF;
-`
-export const MenuLine2 = styled.div`
-	position: absolute;
-	width: 33px;
-	height: 5px;
-	top: 10px
-	background: #FFFFFF;
-`
-export const MenuLine3 = styled.div`
-	position: absolute;
-	width: 28px;
-	height: 5px;
-	top: 20px
-	background: #FFFFFF;
-`
 // End Style Menu Toggle
 
 export const UserHolder = styled.div``

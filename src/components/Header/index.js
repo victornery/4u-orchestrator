@@ -14,6 +14,7 @@ import {
 	ActiveCampaigns,
 	UserHolder
 } from './style'
+import Drawer from '@components/Drawer'
 
 const Header = ({ isLogged = false }) => {
 	
@@ -37,6 +38,7 @@ const Header = ({ isLogged = false }) => {
 							<p>Saldo: R$ 350,00</p>
 						</ActiveCampaigns>
 					</UserHolder>
+					<Drawer/>
 				</Fragment>
 			)
 		}

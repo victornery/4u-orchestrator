@@ -6,9 +6,18 @@ class Me extends Component {
     return (                      
       <Fragment>
         <ButtonsContainer>
-          <Button></Button>
-          <Button></Button>
-          <Button></Button>
+          <Button>
+            <img src={imgCampaign} />
+            <span>Campanha</span>
+          </Button>
+          <Button>
+            <img src={imgContacts} />
+            <span>Contatos</span>
+          </Button>
+          <Button>
+            <img src={imgReport} />
+            <span>Relatórios</span>
+          </Button>
         </ButtonsContainer>
       </Fragment>
     )

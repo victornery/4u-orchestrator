@@ -3,6 +3,7 @@ import { Route, useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Index from '@containers/index'
 import Campaign from '@containers/campaign'
+import CreateCampaign from '@containers/createCampaign'
 import Me from '@containers/me'
 import Register from '@containers/register'
 import Reports from '@containers/reports'
@@ -64,10 +65,12 @@ const Routing = () => {
       <Header isLogged={context.isLoggedIn} smaller={conditionsToSmaller()} />
         <Main>
           <Route exact path="/" component={Index} />
+          {/* <Route exact path="/campaign" component={Campaign} /> */}
           {
             context.isLoggedIn && (
               <Fragment>
                 <Route exact path="/campaign" component={Campaign} />
+                <Route exact path="/createCampaign" component={CreateCampaign} />
                 <Route exact path="/me" component={Me} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/reports" component={Reports} />

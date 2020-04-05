@@ -3,10 +3,11 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
-import ClearIcon from '@material-ui/icons/Clear';
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import ClearIcon from '@material-ui/icons/Clear'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
 import { API_BASE } from '@utils/requests'
 import { ThemeContext } from '@context'
+import { transformBase64 } from '@utils/files'
 
 import { ModalContent, InputModal, LineMidia, HeadModal } from './style'
 
@@ -26,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TransitionsModal({ isMidia = false, isTable = false, title, data, setNewData }) {
   const [open, setOpen] = useState(false);
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    media: {},
+    messages: {}
+  });
+  
   const context = useContext(ThemeContext);
   const classes = useStyles();
 
@@ -48,6 +53,26 @@ export default function TransitionsModal({ isMidia = false, isTable = false, tit
       case 'configs':
     }
   }
+
+  const handleChange = async ({ target: { files }}) => {
+    const file = files[0]
+
+    await transformBase64(file);
+  }
+
+
+const MediaField = ({ handleChange }) => (<div>
+  <span>
+    Clique aqui para adicionar uma mídia
+    <small>* até 30mb</small>
+  </span>
+  <input
+    onChange={handleChange}
+    accept="image/*,application/pdf,application/msword,audio/mp3,video/mp4"
+    type="file"
+  />
+</div>)
+
 
   useEffect(() => {
     API_BASE.get('/lists?')
@@ -107,14 +132,14 @@ export default function TransitionsModal({ isMidia = false, isTable = false, tit
                     </HeadModal>
                     <h1>{title}</h1>
                     <LineMidia>
-                      <div></div>
-                      <div></div>
-                      <div></div>
+                      <MediaField handleChange={handleChange} />
+                      <MediaField handleChange={handleChange} />
+                      <MediaField handleChange={handleChange} />
                     </LineMidia>
-                    <LineMidia >
-                      <div></div>
-                      <div></div>
-                      <div></div>
+                    <LineMidia>
+                      <MediaField handleChange={handleChange} />
+                      <MediaField handleChange={handleChange} />
+                      <MediaField handleChange={handleChange} />
                     </LineMidia>
                     <p>Concluir</p>
                   </Fragment>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { LoginHolder, StyledInput } from './styles'
 import { Button } from '@material-ui/core'
+import { ThemeContext } from '@context'
+import { API_BASE } from '@utils/requests'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const LoginSchema = Yup.object().shape({
   user: Yup.string()
@@ -14,11 +17,27 @@ const LoginSchema = Yup.object().shape({
   .required('Obrigatório')
 })
 
-const LoginConditions = (fields) => {
-
-}
-
 const Login = () => {
+  const context = useContext(ThemeContext)
+
+  const SUBMIT_LOGIN_USER = params => {
+    
+    context.setLoading(true);
+
+    return API_BASE.post('/auth/local', params)
+    .then(({ data }) => {
+      console.log(context);
+      console.log(data)
+    })
+    .catch(({ error }) => {
+      context.setLoading(false);
+      context.setLoginError(true)
+      setTimeout(() => {
+        context.setLoginError(false)
+      }, 2000)
+    })
+  }
+
   return (
     <LoginHolder>
       <Formik
@@ -27,8 +46,10 @@ const Login = () => {
         password: ''
       }}
       validationSchema={LoginSchema}
-      onSubmit={values => {
-        console.log(values)
+      onSubmit={({ user, password }) => {
+
+        return SUBMIT_LOGIN_USER({ identifier: user, password })
+        
       }}
       >
         {
@@ -61,7 +82,7 @@ const Login = () => {
                 disabled={(errors.password || errors.user || !values.user || !values.password) && true}
                 size="large"
                 color="primary"
-              >Entrar</Button>
+          >{ context.isLoading ? <CircularProgress color="#FFF" size={25} /> : 'Entrar' }</Button>
             </Form>
           )
         }

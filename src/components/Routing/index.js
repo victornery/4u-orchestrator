@@ -3,12 +3,12 @@ import { Route, useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Index from '@containers/index'
 import Campaign from '@containers/campaign'
+import CreateCampaign from '@containers/createCampaign'
 import Me from '@containers/me'
 import Register from '@containers/register'
 import Reports from '@containers/reports'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-
 import { ThemeContext } from '@context'
 
 const Main = styled.main`
@@ -52,5 +52,6 @@ const Routing = () => {
     </Fragment>
   )
 }
+
 
 export default Routing

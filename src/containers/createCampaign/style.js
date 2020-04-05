@@ -5,19 +5,21 @@ export const CreateCampaignContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 150px 0 80px;
 `
 export const ListButtons = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-left: 130px;
 
-	button{
+	button {
 		width: 283px;
 		height: 127px;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		background: #918699;
 	}
 `
-export const Telephone = styled.img`
+export const Telephone = styled.div`
 	margin-left: 265px;	
+	position: relative;
 `

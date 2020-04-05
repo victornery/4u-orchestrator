@@ -14,7 +14,6 @@ import {
 import Drawer from '@components/Drawer'
 import { ThemeContext } from '@context'
 import { transformMoney } from '@utils/money'
-import { Link } from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 
 const Header = ({ isLogged = false, smaller = false }) => {

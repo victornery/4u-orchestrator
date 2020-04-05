@@ -12,12 +12,12 @@ const Me = () => {
 
   return (                      
       <ButtonsContainer>
-        <Button to="/campaign">
+        <Button>
           <img src={imgCampaign} alt="Campanha" />
           <span>Campanha</span>
           <SubButtons>
             <SubButton onClick={ () => {
-              history.push('/campaign');
+              history.push('/createCampaign');
             } }>
               <img src={imgCampaignCreate} alt="Criar nova campanha" />
               <span>Criar</span>
@@ -31,10 +31,26 @@ const Me = () => {
         <Button>
           <img src={imgContacts} alt="Contatos" />
           <span>Contatos</span>
+          <SubButtons>
+            <SubButton onClick={ () => { console.log('Criar lista') } }>
+              <img src={imgCampaignCreate} alt="Criar lista" />
+              <span>Criar</span>
+            </SubButton>
+            <SubButton>
+              <img src={imgCampaignEdit} alt="Editar lista" />
+              <span>Modificar</span>
+            </SubButton>
+          </SubButtons>
         </Button>
         <Button>
           <img src={imgReport} alt="Relatórios" />
           <span>Relatórios</span>
+          <SubButtons full>
+            <SubButton onClick={ () => { history.push('/me'); } }>
+              <img src={imgCampaignCreate} alt="Visualizar Relatórios" />
+              <span>Visualizar</span>
+            </SubButton>
+          </SubButtons>
         </Button>
       </ButtonsContainer>
   )

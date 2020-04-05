@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, List, SwipeableDrawer } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
+import ClearIcon from '@material-ui/icons/Clear';
 import { Link } from 'react-router-dom'
 import imgProfile from '@assets/imgProfile.png'
 import { Profile, Menu } from './style';
@@ -41,6 +42,7 @@ const Drawer = () => {
     >
       <List>
         <Profile>
+          <ClearIcon onClick={toggleDrawer(anchor, false)} />
             <img src={imgProfile} alt="Foto de Perfil" />
 						<p>{ context && context.user && context.user.fullname ? `${context.user.fullname}` : 'Usuário' }</p>
 						<ul>

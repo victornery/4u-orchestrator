@@ -32,7 +32,7 @@ function getStepContent(stepIndex) {
       return (
         <div>
           <CampaignContainer >
-            <img src={ImgGroup} />
+            <img src={ImgGroup} alt="Nome da Campanha" />
             <p>Nome da Campanha</p>
             <input type="text" />
           </CampaignContainer>
@@ -41,7 +41,7 @@ function getStepContent(stepIndex) {
     case 1:
       return (
         <CampaignContainer >
-          <img src={ImgGroup} />
+          <img src={ImgGroup} alt="Criar mensagem" />
           <p>Mensagem</p>
           <input placeholder="cole, digite ou busque uma mensagem já enviada" />
         </CampaignContainer>
@@ -49,7 +49,7 @@ function getStepContent(stepIndex) {
     case 2:
       return (
         <CampaignContainer >
-          <img src={ImgGroup} />
+          <img src={ImgGroup} alt="Mídia" />
           <p>Mídia</p>
           <input placeholder="Faça upload de uma nova mídia" />
         </CampaignContainer>
@@ -57,7 +57,7 @@ function getStepContent(stepIndex) {
     case 3:
       return (
         <CampaignContainer >
-          <img src={ImgGroup} />
+          <img src={ImgGroup} alt="Atribuir Contatos" />
           <p>Contatos</p>
           <input />
         </CampaignContainer>
@@ -73,7 +73,7 @@ function getStepContent(stepIndex) {
             </span>
           </TextTop>
           <CampaignContainer >
-            <img className="imgPhone" src={imgSmartphone} />
+            <img className="imgPhone" src={imgSmartphone} alt="Telefone" />
             <input />
           </CampaignContainer>
         </Fragment>
@@ -82,7 +82,7 @@ function getStepContent(stepIndex) {
     case 5:
       return (
         <CampaignContainer >
-          <img src={imgCalendar} />
+          <img src={imgCalendar} alt="Agendar envio" />
           <p>Agendar Envio</p>
           <input type="date" />
         </CampaignContainer>
@@ -116,7 +116,7 @@ export default function Campaign() {
           <div>
             <CampaignContainer >
               <p>Configuração de campanha Finalizado</p>
-              <img src={imgCongratulation} />
+              <img src={imgCongratulation} alt="Campanha finalizada" />
               <span>Começar o disparo imediatamente</span>
             </CampaignContainer>
             <Buttons>

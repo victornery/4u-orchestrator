@@ -1,11 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
+import { Button, List, SwipeableDrawer } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { Link } from 'react-router-dom'
 import imgProfile from '@assets/imgProfile.png'
 
 import { Profile, Menu } from './style';
@@ -45,13 +43,13 @@ export default function SwipeableTemporaryDrawer() {
     >
       <List>
         <Profile>
-            <img src={imgProfile} />
+            <img src={imgProfile} alt="Foto de Perfil" />
 						<p>Fulano de Tal</p>
 						<ul>
-							<li><a href="#">Configurações de Campanha</a></li>
-							<li><a href="#">Configurações</a></li>
-							<li><a href="#">Créditos</a></li>
-							<li><a href="#">Sair</a></li>							
+							<li><Link to="#">Configurações de Campanha</Link></li>
+							<li><Link to="#">Configurações</Link></li>
+							<li><Link to="#">Créditos</Link></li>
+							<li><Link to="#">Sair</Link></li>							
 						</ul>
 						<span>Relatar problema</span>
         </Profile>
@@ -64,9 +62,9 @@ export default function SwipeableTemporaryDrawer() {
       {[''].map((anchor) => (
         <React.Fragment key={anchor}>
 					<Menu>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}
-					<MenuIcon/>
-					</Button>
+            <Button onClick={toggleDrawer(anchor, true)}>{anchor}
+            <MenuIcon/>
+            </Button>
 					</Menu>
           <SwipeableDrawer
             anchor={anchor}

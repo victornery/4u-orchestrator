@@ -1,13 +1,17 @@
 import React, { Component, Fragment } from 'react'
-import HeaderContent from '@components/HeaderContent'
 
 import StopIcon from '@material-ui/icons/Stop'
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined'
 
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-
-import { ContentReports, PieChart, TitleCampaing, Chart, ChartLegends, ColumnChart, LegendMetrics } from './style'
+import { 
+  ContentReports,
+  PieChart,
+  TitleCampaing,
+  Chart,
+  ChartLegends,
+  ColumnChart,
+  LegendMetrics
+} from './style'
 
 class Reports extends Component {
 

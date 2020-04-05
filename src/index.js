@@ -1,26 +1,27 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import store, { history } from './store';
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 import { ThemeProvider } from 'styled-components'
 import { ThemeProvider as MThemeProvider } from '@material-ui/core/styles'
 import Routing from '@components/Routing'
+import { ContextProvider, initialState } from '@context'
 import { theme, MTheme } from '@utils/theme'
 
 const target = document.querySelector('#root');
 
 render(
-  <Provider store={store}>
+  <ContextProvider value={initialState}>
     <ThemeProvider theme={theme.breakpoints}>
       <MThemeProvider theme={MTheme}>
-        <ConnectedRouter history={history}>
-          <Routing />        
-        </ConnectedRouter>
+        <Router>
+          <Switch>
+            <Routing />        
+          </Switch>
+        </Router>
       </MThemeProvider>
     </ThemeProvider>
-  </Provider>,
+  </ContextProvider>,
   target,
 );
 

@@ -1,16 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { Bar, Pie } from 'react-chartjs-2';
-import StopIcon from '@material-ui/icons/Stop'
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined'
 
 import {
-  ContentReports,
-  PieChart,
+  ContentReports,  
   TitleCampaing,
-  Chart,
-  ChartLegends,
-  ColumnChart,
-  LegendMetrics
+  Chart,  
+  ColumnChart,  
 } from './style'
 
 class Reports extends Component {

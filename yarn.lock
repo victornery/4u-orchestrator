@@ -142,7 +142,7 @@
   resolved "https://npm.zflow.com.br/@emotion%2funitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@material-ui/core@^4.9.8":
+"@material-ui/core@^4.9.9":
   version "4.9.9"
   resolved "https://npm.zflow.com.br/@material-ui%2fcore/-/core-4.9.9.tgz#902dc37eeb415dd3288feb2c92e0dc27d9caed48"
   integrity sha512-Gp0UdJLxPEnkn7O0QpJ2/LOeIuT8nX9e6CjQFuLnOy10rUGjRsOZ2T170Y057xdUmw1VNE+0bvkkO6dOghxt4g==
@@ -167,7 +167,7 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
 
-"@material-ui/lab@^4.0.0-alpha.48":
+"@material-ui/lab@^4.0.0-alpha.46":
   version "4.0.0-alpha.48"
   resolved "https://npm.zflow.com.br/@material-ui%2flab/-/lab-4.0.0-alpha.48.tgz#47a54cc9d80c2a0446506530cec263d98ae64691"
   integrity sha512-iGuTGUvIR3LLkd4LPJRl1Sa92TKmoRa3B3p0I+IllAx+uK1h/aXr++6CnYmTS+gubWRQ8yWQVLRADVrPuLnvCA==
@@ -6951,6 +6951,14 @@ react-app-rewired@^2.1.5:
   integrity sha512-Gr8KfCeL9/PTQs8Vvxc7v8wQ9vCFMnYPhcAkrMlzkLiMFXS+BgSwm11MoERjZm7dpA2WjTi+Pvbu/w7rujAV+A==
   dependencies:
     semver "^5.6.0"
+
+react-chartjs-2@^2.9.0:
+  version "2.9.0"
+  resolved "https://npm.zflow.com.br/react-chartjs-2/-/react-chartjs-2-2.9.0.tgz#d054dbdd763fbe9a76296a4ae0752ea549b76d9e"
+  integrity sha512-IYwqUUnQRAJ9SNA978vxulHJTcUFTJk2LDVfbAyk0TnJFZZG7+6U/2flsE4MCw6WCbBjTTypy8T82Ch7XrPtRw==
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.8"
 
 react-dev-utils@^5.0.0:
   version "5.0.3"

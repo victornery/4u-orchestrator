@@ -10,6 +10,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { ThemeContext } from '@context'
 import { API_BASE } from '@utils/requests'
+import { initializeUser } from '@context/actions'
 
 const Main = styled.main`
   min-height: 50vh;
@@ -30,10 +31,7 @@ const Routing = () => {
 
       API_BASE.get('/users/me')
       .then(({ data }) => {
-        context.setLoading(false);
-        context.setLogged(true);
-        context.setUser(data);
-        history.push('/me');
+        initializeUser(context, history, data);
       })
       .catch(() => {
         localStorage.removeItem('jwt')

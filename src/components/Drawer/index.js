@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import { Button, List, SwipeableDrawer } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom'
 import imgProfile from '@assets/imgProfile.png'
 import { Profile, Menu } from './style';
-import { useLogoff } from '@context/actions'
+import { useHistory } from 'react-router-dom'
+import { ThemeContext } from '@context'
+import { logoffUser } from '@context/actions'
 
 const Drawer = () => {
+  const history = useHistory();
+  const context = useContext(ThemeContext)
 
   const [state, setState] = React.useState({
     left: false,
@@ -40,12 +42,12 @@ const Drawer = () => {
       <List>
         <Profile>
             <img src={imgProfile} alt="Foto de Perfil" />
-						<p>Fulano de Tal</p>
+						<p>{ context && context.user && context.user.fullname ? `${context.user.fullname}` : 'Usuário' }</p>
 						<ul>
 							<li><Link to="#">Configurações de Campanha</Link></li>
 							<li><Link to="#">Configurações</Link></li>
 							<li><Link to="#">Créditos</Link></li>
-							<li><Link onClick={() => useLogoff()}>Sair</Link></li>
+							<li><Link onClick={() => logoffUser(context, history)}>Sair</Link></li>
 						</ul>
 						<span>Relatar problema</span>
         </Profile>

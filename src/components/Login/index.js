@@ -7,6 +7,7 @@ import { Button } from '@material-ui/core'
 import { ThemeContext } from '@context'
 import { API_BASE } from '@utils/requests'
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { initializeUser } from '@context/actions'
 
 const LoginSchema = Yup.object().shape({
   user: Yup.string()
@@ -28,11 +29,7 @@ const Login = () => {
 
     return API_BASE.post('/auth/local', params)
     .then(({ data }) => {
-      localStorage.setItem('jwt', data.jwt)
-      context.setLoading(false);
-      context.setLogged(true);
-      context.setUser(data.user)
-      history.push('/me');
+      initializeUser(context, history, data)
     })
     .catch(({ error }) => {
       context.setLoading(false);

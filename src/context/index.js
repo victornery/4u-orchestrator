@@ -4,7 +4,9 @@ export const initialState = {
   isLoggedIn: false,
   isLoading: false,
   isLoginError: false,
-  user: {},
+  user: {
+    fullname: ''
+  },
   company: {},
   credits: {},
   campaign: {},
@@ -33,6 +35,10 @@ class ContextProvider extends Component {
     this.setState(prevState => ({ isLoading: loading }))
   }
 
+  setLogged = state => {
+    this.setState(prevState => ({ isLoggedIn: state }))
+  }
+
   setLoginError = login => {
     this.setState(prevState => ({ isLoginError: login }))
   }
@@ -40,7 +46,7 @@ class ContextProvider extends Component {
   render() {
     const { children } = this.props
     const { state } = this
-    const { setUser, setCompany, setCampaign, setLoading, setLoginError } = this
+    const { setUser, setCompany, setCampaign, setLoading, setLoginError, setLogged } = this
 
     return (
       <ThemeContext.Provider
@@ -50,7 +56,8 @@ class ContextProvider extends Component {
           setCompany,
           setCampaign,
           setLoading,
-          setLoginError
+          setLoginError,
+          setLogged
         }}>
           {children}
       </ThemeContext.Provider>

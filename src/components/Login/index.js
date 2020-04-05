@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { LoginHolder, StyledInput } from './styles'
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import { ThemeContext } from '@context'
 import { API_BASE } from '@utils/requests'
@@ -19,15 +20,19 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const context = useContext(ThemeContext)
-
+  const history = useHistory();
+  
   const SUBMIT_LOGIN_USER = params => {
     
     context.setLoading(true);
 
     return API_BASE.post('/auth/local', params)
     .then(({ data }) => {
-      console.log(context);
-      console.log(data)
+      localStorage.setItem('jwt', data.jwt)
+      context.setLoading(false);
+      context.setLogged(true);
+      context.setUser(data.user)
+      history.push('/me');
     })
     .catch(({ error }) => {
       context.setLoading(false);
@@ -79,7 +84,7 @@ const Login = () => {
               <Button
                 variant="contained"
                 type="submit"
-                disabled={(errors.password || errors.user || !values.user || !values.password) && true}
+                disabled={(errors.password || errors.user || !values.user || !values.password || context.isLoading) && true}
                 size="large"
                 color="primary"
           >{ context.isLoading ? <CircularProgress color="#FFF" size={25} /> : 'Entrar' }</Button>

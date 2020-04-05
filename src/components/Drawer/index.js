@@ -1,33 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, List, SwipeableDrawer } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom'
 import imgProfile from '@assets/imgProfile.png'
-
 import { Profile, Menu } from './style';
+import { useLogoff } from '@context/actions'
 
+const Drawer = () => {
 
-const useStyles = makeStyles({
-  list: {
-    width: 520,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
-export default function SwipeableTemporaryDrawer() {
-  const classes = useStyles();
   const [state, setState] = React.useState({
-    left: false,  
+    left: false,
   });
 
   const swipeableTo = 'left'
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
       return;
     }
 
@@ -36,9 +30,9 @@ export default function SwipeableTemporaryDrawer() {
 
   const list = (anchor) => (
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      style={{ 
+        minWidth: 520
+      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -51,7 +45,7 @@ export default function SwipeableTemporaryDrawer() {
 							<li><Link to="#">Configurações de Campanha</Link></li>
 							<li><Link to="#">Configurações</Link></li>
 							<li><Link to="#">Créditos</Link></li>
-							<li><Link to="#">Sair</Link></li>							
+							<li><Link onClick={() => useLogoff()}>Sair</Link></li>
 						</ul>
 						<span>Relatar problema</span>
         </Profile>
@@ -65,7 +59,7 @@ export default function SwipeableTemporaryDrawer() {
         <React.Fragment key={anchor}>
 					<Menu>
             <Button onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon/>
+              <MenuIcon/>
             </Button>
 					</Menu>
           <SwipeableDrawer
@@ -81,3 +75,5 @@ export default function SwipeableTemporaryDrawer() {
     </div>
   );
 }
+
+export default Drawer

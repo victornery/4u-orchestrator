@@ -12,7 +12,10 @@ export const initialState = {
   },
   company: {},
   wallet: {},
-  campaign: {},
+  campaign: {
+    items: []
+  },
+  profile: {}
 }
 
 export const ThemeContext = createContext(initialState)
@@ -35,7 +38,7 @@ class ContextProvider extends Component {
   }
 
   setCampaign = campaign => {
-    this.setState(prevState => ({ campaign }))
+    this.setState(prevState => ({ ...prevState, campaign }))
   }
 
   setLoading = loading => {
@@ -50,6 +53,10 @@ class ContextProvider extends Component {
     this.setState(prevState => ({ isLoginError: login }))
   }
 
+  setProfile = profile => {
+    this.setState(prevState => ({ profile: profile }))
+  }
+
   render() {
     const { children } = this.props
     const { state } = this
@@ -60,7 +67,8 @@ class ContextProvider extends Component {
       setLoading, 
       setLoginError, 
       setLogged, 
-      setWallet 
+      setWallet,
+      setProfile
     } = this
 
     return (
@@ -73,7 +81,8 @@ class ContextProvider extends Component {
           setLoading,
           setLoginError,
           setLogged,
-          setWallet
+          setWallet,
+          setProfile
         }}>
           {children}
       </ThemeContext.Provider>

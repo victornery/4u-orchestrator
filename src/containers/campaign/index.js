@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 import ImgGroup from '@assets/imgGroup.png'
 import imgCalendar from '@assets/imgCalendar.png'
 import imgCongratulation from '@assets/imgCongratulation.png'
+import NextIcon from '@assets/send.png'
 import imgSmartphone from '@assets/imgSmartphone.png'
 import TransitionModal from '@components/Modal'
 
@@ -24,44 +25,65 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return [1, 2, 3, 4, 5, 6];
+  return ['campaignName', 'createMessage', 'insertMedia', 'associateContacts', 'sendTest', 'schedule'];
 }
 
-function getStepContent(stepIndex) {
+const SendButton = ({ onClick }) => <img src={NextIcon} style={{  
+    position: 'absolute',
+    top: '50%',
+    right: 15,
+    transform: 'translateY(-50%)'
+  }} onClick={onClick} alt="Enviar" />
+
+function getStepContent(stepIndex, handleNext) {
+  const [form, setForm] = useState({})
+
+  React.useEffect(() => {
+    console.log(form)
+  }, [form])
+
   switch (stepIndex) {
-    case 0:
+    case 'campaignName':
       return (
           <CampaignContainer >
             <img src={ImgGroup} alt="Nome da Campanha" />
             <p>Nome da Campanha</p>
-            <input type="text" placeholder="Digite aqui o nome da sua campanha" />
+            <div style={{ position: 'relative' }}>
+              <input type="text" id="name" value={form.name} onInput={(event) => { const value = event.target.value; setForm({ ...form, name: value }) }} placeholder="Digite aqui o nome da sua campanha" />
+              <SendButton onClick={handleNext} />
+            </div>
           </CampaignContainer>
       );
-    case 1:
+    case 'createMessage':
       return (
         <CampaignContainer >
           <img src={ImgGroup} alt="Criar mensagem" />
           <p>Mensagem</p>
-          <TransitionModal title="Mensagem" isMidia={true} placeholder="cole, digite ou busque uma mensagem já enviada" />
+          <div style={{ position: 'relative' }}>
+            <input type="text" id="message" value={form.message} onInput={(event) => { const value = event.target.value; setForm({ ...form, message: value }) }} placeholder="Cole, digite ou busque uma mensagem já enviada" />
+            <SendButton onClick={handleNext} />
+          </div>
+          <TransitionModal attributeContent title="Mensagem" isMidia={true} placeholder="Cole, digite ou busque uma mensagem já enviada" />
         </CampaignContainer>
       );
-    case 2:
+    case 'insertMedia':
       return (
         <CampaignContainer >
           <img src={ImgGroup} alt="Mídia" />
           <p>Mídia</p>
-          <TransitionModal title="Mídia" isMidia={true} placeholder="Faça upload de uma nova mídia" />
+          <input type="text" value={form.media} onInput={(event) => { const value = event.target.value; setForm({ ...form, media: value }) }} placeholder="Faça upload de uma nova mídia" />
+          <TransitionModal attributeContent={form, setForm, 'media'} title="Mídia" isMidia={true} placeholder="Faça upload de uma nova mídia" />
         </CampaignContainer>
       );
-    case 3:
+    case 'associateContacts':
       return (
         <CampaignContainer >
           <img src={ImgGroup} alt="Atribuir Contatos" />
           <p>Contatos</p>
-          <TransitionModal title="Contatos" isTable={true} />
+          <TransitionModal attributeContent={form, setForm, 'contactList'} title="Contatos" isTable={true} />
         </CampaignContainer>
       );
-    case 4:
+    case 'sendTest':
       return (
         <Fragment>
           <TextTop>
@@ -73,18 +95,17 @@ function getStepContent(stepIndex) {
           </TextTop>
           <CampaignContainer >
             <img className="imgPhone" src={imgSmartphone} alt="Telefone" />
-            <input />
-            <TransitionModal isTable={true} />
+            <TransitionModal attributeContent={form, setForm, 'testList'} isTable={true} />
           </CampaignContainer>
         </Fragment>
       );
 
-    case 5:
+    case 'schedule':
       return (
         <CampaignContainer >
           <img src={imgCalendar} alt="Agendar envio" />
           <p>Agendar Envio</p>
-          <input type="date" />
+          <input type="date" onChange={(event) => { const value = event.target.value; setForm({ ...form, schedule: value }) }} />
         </CampaignContainer>
       );
     default:
@@ -94,15 +115,20 @@ function getStepContent(stepIndex) {
 
 export default function Campaign() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState('campaignName');
+  const [countStep, setNewStep] = React.useState(0)
   const steps = getSteps();
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setNewStep(countStep + 1);
+    setActiveStep(steps[countStep + 1]);
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if(countStep >= 1) {
+      setNewStep(countStep - 1);
+      setActiveStep(steps[countStep - 1]);
+    }
   };
 
   const handleReset = () => {
@@ -127,7 +153,7 @@ export default function Campaign() {
           </div>
         ) : (
             <div>
-              <div>{getStepContent(activeStep)}</div>
+              <div>{getStepContent(activeStep, handleNext)}</div>
               <Buttons>
                 <div>
                   <Button
@@ -135,9 +161,6 @@ export default function Campaign() {
                     onClick={handleBack}
                   >
                     Voltar
-              </Button>
-                  <Button variant="contained" color="primary" onClick={handleNext}>
-                    {activeStep === steps.length - 1 ? 'Terminar' : 'Próximo'}
                   </Button>
                 </div>
               </Buttons>

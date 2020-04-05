@@ -12,13 +12,14 @@ export const ListButtons = styled.div`
 	flex-direction: column;
 	margin-left: 130px;
 
-	button{
+	button {
 		width: 283px;
 		height: 127px;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		background: #918699;
 	}
 `
-export const Telephone = styled.img`
+export const Telephone = styled.div`
 	margin-left: 265px;	
+	position: relative;
 `

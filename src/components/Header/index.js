@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { 
 	StyledHeader,
 	LogoHeader,
@@ -12,8 +12,12 @@ import {
 	UserHolder
 } from './style'
 import Drawer from '@components/Drawer'
+import { ThemeContext } from '@context'
 
 const Header = ({ isLogged = false }) => {
+
+	const context = useContext(ThemeContext)
+	console.log(context)
 	return (
 		<StyledHeader>
 			{
@@ -21,7 +25,7 @@ const Header = ({ isLogged = false }) => {
 					<Fragment>
 						<Menu />
 						<UserHolder>
-							<TitleName>Olá, Fulando de tal</TitleName> 
+							<TitleName>{ context && context.user && context.user.fullname ? `Olá, ${context.user.fullname}` : 'Seja bem-vindo' }</TitleName>
 							<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
 							<ActiveCampaigns>
 								Campanhas Ativas: 3<br />

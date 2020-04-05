@@ -9,6 +9,7 @@ import Reports from '@containers/reports'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { ThemeContext } from '@context'
+import { API_BASE } from '@utils/requests'
 
 const Main = styled.main`
   min-height: 50vh;
@@ -21,10 +22,31 @@ const Routing = () => {
   
   useEffect(() => {
 
+    // Verifica se existe o JWT em LocalStorage e o estado `isLoggedIn` é false
+
+    if((!!localStorage.getItem('jwt')) && (!!context.isLoggedIn === false)) {
+      // Vamos exibir o carregamento
+      context.setLoading(true);
+
+      API_BASE.get('/users/me')
+      .then(({ data }) => {
+        context.setLoading(false);
+        context.setLogged(true);
+        context.setUser(data);
+        history.push('/me');
+      })
+      .catch(() => {
+        localStorage.removeItem('jwt')
+        context.setLoading(false);
+      })
+    }
+
+    // Tratar a situação de usuário deslogado e que tenta entrar em outra rota.
     if(!!context.isLoggedIn === false) {
       return history.push('/')
     }
 
+    // Tratar a situação de usuário logado que tenta entrar na rota de login.
     if(!!context.isLoggedIn && location.pathname === '/') {
       return history.push('/me')
     }
@@ -51,6 +73,5 @@ const Routing = () => {
     </Fragment>
   )
 }
-
 
 export default Routing

@@ -1,16 +1,15 @@
 import { API_BASE } from '@utils/requests'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { ThemeContext } from '@context'
 
-export const SUBMIT_LOGIN_USER = params => {
-  
-  const context = useContext(ThemeContext);
-  API_BASE('/auth/local', params)
-  .then(({ data }) => {
-    console.log(context);
-    console.log(data)
-  })
+export const useLogoff = async () => {
+  const history = useHistory();
+  const { setLogged, setLoading } = useContext(ThemeContext)
 
-  console.log('teste');
-  return <div />
+  setLogged(false);
+  setLoading(true);
+  localStorage.removeItem('jwt')
+  await history.push('/')
+  await setLoading(false);
 }

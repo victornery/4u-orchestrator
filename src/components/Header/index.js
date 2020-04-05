@@ -24,8 +24,8 @@ const Header = ({ isLogged = false, smaller = false }) => {
 	// prank with trump hahaha im sorry
 	const sumWallets = (billios_and_billions) => {
 		const money = billios_and_billions
-		let listMoney = []
 		const reducer = (accumulator, actualValue) => accumulator + actualValue
+		let listMoney = []
 		let total = 0
 
 		if(money.length >= 1) {

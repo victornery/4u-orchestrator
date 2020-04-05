@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-
+import { Bar, Pie } from 'react-chartjs-2';
 import StopIcon from '@material-ui/icons/Stop'
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined'
 
-import { 
+import {
   ContentReports,
   PieChart,
   TitleCampaing,
@@ -14,8 +14,68 @@ import {
 } from './style'
 
 class Reports extends Component {
-
   render() {
+
+    const dataPieBase = {
+      labels: [
+        'Válidos',
+        'Inválidos',
+      ],
+      datasets: [{
+        data: [300, 50],
+        backgroundColor: [
+          '#C4C4C4',
+          '#a39e9e',
+        ],
+        hoverBackgroundColor: [
+          '#d3d3d3',
+          '#d3d3d3',
+        ]
+      }]
+    };
+
+    const dataPieAcconts = {
+      labels: [
+        'Validos',
+        'Whatsapp',
+      ],
+      datasets: [{
+        data: [300, 50],
+        backgroundColor: [
+          '#C4C4C4',
+          '#a39e9e',
+        ],
+        hoverBackgroundColor: [
+          '#d3d3d3',
+          '#d3d3d3',
+        ]
+      }]
+    };
+
+    const dataBarMetrics = {
+      labels: ['Opt-out', 'Respostas', 'Abertura'],
+      datasets: [
+        {
+          label: 'Métricas',
+          backgroundColor: '#C4C4C4',
+          borderColor: '#C4C4C4',
+          borderWidth: 1,
+          hoverBackgroundColor: '#d6d6d6',
+          hoverBorderColor: '#d6d6d6',
+          data: [40, 60, 80],
+          minBarLength: 0,
+          offset: true,
+        }
+      ]
+    };
+
+    const options = {
+      legend: {
+          display: true,
+          position: 'bottom'
+      },
+    };
+
     return (
       <Fragment>
         <TitleCampaing>
@@ -25,38 +85,32 @@ class Reports extends Component {
         <ContentReports>
           <Chart>
             <h2>Base</h2>
-            <PieChart />
-            <ChartLegends>
-              <StopIcon/>
-              <span>Válidos</span>
-              <StopIcon/>
-              <span>Inválidos</span>
-            </ChartLegends>
+            <ColumnChart>
+              <Pie 
+                data={dataPieBase} 
+                height={300}  
+                options={options}                                        
+              />
+            </ColumnChart>
           </Chart>
           <Chart>
             <h2>Contas</h2>
-            <PieChart />
-            <ChartLegends>
-              <StopIcon/>
-              <span>Válidos</span>
-              <StopIcon/>
-              <span>Whatsapp</span>
-            </ChartLegends>
+            <ColumnChart>
+              <Pie 
+                data={dataPieAcconts}
+                height={300}
+                options={options} 
+              />
+            </ColumnChart>
           </Chart>
           <Chart >
-            <h2>Metricas</h2>
+            <h2>Métricas</h2>
             <ColumnChart>
-              <div></div>
-              <div></div>
-              <div></div>
-            </ColumnChart>
-            <ChartLegends>
-              <LegendMetrics>                 
-                <div><span>Opt-out</span></div>
-                <div><span>Respostas</span></div>
-                <div><span>Abertura</span></div>
-              </LegendMetrics>
-            </ChartLegends>
+              <Bar
+                data={dataBarMetrics}
+                options={{ maintainAspectRatio: false }}
+              />
+            </ColumnChart>            
           </Chart>
         </ContentReports>
       </Fragment>

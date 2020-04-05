@@ -22,7 +22,7 @@ export const ContentReports = styled.div`
 	margin-bottom: 100px;
 	${up('tablet')} {
 			flex-direction: row;
-			margin-top: 105px;
+			margin-top: 60px;
 			justify-content: center;
 	}
 
@@ -41,13 +41,7 @@ export const Chart = styled.div`
 		margin-bottom: 20px;
 	}
 `
-export const PieChart = styled.div`
-	width: 362px;
-	height: 362px;
-	border-radius: 300px;
-	justify-content: center;
-	background: #C4C4C4;
-`
+
 export const ChartLegends = styled.div`
 	justify-content: center;
 	align-items: center;

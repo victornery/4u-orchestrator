@@ -66,15 +66,40 @@ export const InputModal = styled.input`
 `
 export const LineMidia = styled.div`
 	display: flex;
-	div{
+
+	div {
 		width: 250px;
 		height: 200px;
-		left: 313px;
 		margin-top: 10px;
 		background: #E8E8E8;
+		position: relative;
 	}
-	div:nth-child(2){
+	
+	div:nth-child(2) {
 		margin: 10px 20px;
+	}
+
+	& input {
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+
+	& span {
+		color: #666;
+		font-size: 18px;
+		max-width: 80%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+
+		& small {
+			display: block;
+			font-size: 10px;
+			margin-top: 10px;
+		}
 	}
 `
 export const HeadModal = styled.div`

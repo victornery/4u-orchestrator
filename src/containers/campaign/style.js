@@ -6,8 +6,9 @@ export const CampaignContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-top: 120px;
 
-	p{
+	p {
 		font-size: 48px;
 		line-height: 59px;
 		color: #FFFFFF;

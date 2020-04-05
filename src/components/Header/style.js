@@ -19,7 +19,6 @@ export const StyledHeader = styled.header`
 		max-height: 200px;
     border: none;
     box-shadow: none;
-    margin-bottom: 80px;
 	` : ''}
 
 `

@@ -1,15 +1,29 @@
 import { API_BASE } from '@utils/requests'
-import { useContext } from 'react'
-import { useHistory } from 'react-router-dom'
-import { ThemeContext } from '@context'
 
-export const useLogoff = async () => {
-  const history = useHistory();
-  const { setLogged, setLoading } = useContext(ThemeContext)
-
-  setLogged(false);
-  setLoading(true);
+export const logoffUser = async (context, history) => {
+  context.setLoading(true);
   localStorage.removeItem('jwt')
-  await history.push('/')
-  await setLoading(false);
+  context.setLogged(false);
+  history.push('/')
+  context.setLoading(false);
+}
+
+export const initializeWallet = (context, history, data) => {
+  console.log(data)
+
+  API_BASE.get(`/wallets?companyUID=${data.companyUID ? data.companyUID : data.user.companyUID}`)
+  .then(({ data }) => {
+    context.setWallet(data);
+  })
+
+  console.log(context);
+}
+
+export const initializeUser = async (context, history, data) => {
+  data.jwt ? localStorage.setItem('jwt', data.jwt) : ''
+  context.setLoading(false);
+  context.setLogged(true);
+  initializeWallet(context, history, data);
+  context.setUser(data.user ? data.user : data);
+  history.push('/me');
 }

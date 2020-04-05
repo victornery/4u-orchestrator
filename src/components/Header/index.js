@@ -24,7 +24,7 @@ const Header = ({ isLogged = false }) => {
 							<TitleName>Olá, Fulando de tal</TitleName> 
 							<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
 							<ActiveCampaigns>
-								Campanhas Ativas: 3
+								Campanhas Ativas: 3<br />
 								Saldo: R$ 350,00
 							</ActiveCampaigns>
 						</UserHolder>

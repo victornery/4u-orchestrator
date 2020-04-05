@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
+import React, { useEffect, useState, useContext, Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import ClearIcon from '@material-ui/icons/Clear';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import { API_BASE } from '@utils/requests'
+import { ThemeContext } from '@context'
 
 import { ModalContent, InputModal, LineMidia, HeadModal } from './style'
 
@@ -22,9 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal({ isMidia = false, isTable = false, title }) {
+export default function TransitionsModal({ isMidia = false, isTable = false, title, data, setNewData }) {
+  const [open, setOpen] = useState(false);
+  const [state, setState] = useState({});
+  const context = useContext(ThemeContext);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -33,6 +37,21 @@ export default function TransitionsModal({ isMidia = false, isTable = false, tit
   const handleClose = () => {
     setOpen(false);
   };
+
+  const chooseContent = (data) => {
+    switch(data) {
+      case 'contacts':
+      case 'campaigns':
+      case 'media':
+      case 'message':
+      case 'message':
+      case 'configs':
+    }
+  }
+
+  useEffect(() => {
+    API_BASE.get('/lists?')
+  }, [])
 
   return (
     <div>

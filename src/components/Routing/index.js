@@ -70,7 +70,7 @@ const Routing = () => {
                 <Route exact path="/campaign" component={Campaign} />
                 <Route exact path="/me" component={Me} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/reports/:id" component={Reports} />
+                <Route exact path="/reports" component={Reports} />
               </Fragment>
             )
           }

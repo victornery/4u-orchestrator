@@ -26,6 +26,7 @@ export const SubButtons = styled.div`
 	transition: .5s all;
 	box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 `
+
 export const SubButton = styled.div`
 	background: #503366;
 	height: 91px;

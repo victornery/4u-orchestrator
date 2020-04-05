@@ -51,9 +51,17 @@ const Routing = () => {
 
   }, [])
 
+  const conditionsToSmaller = () => {
+    if(location.pathname === '/campaign') {
+      return true
+    }
+
+    return false
+  }
+
   return (
     <Fragment>
-      <Header isLogged={context.isLoggedIn} />
+      <Header isLogged={context.isLoggedIn} smaller={conditionsToSmaller()} />
         <Main>
           <Route exact path="/" component={Index} />
           {
@@ -62,7 +70,7 @@ const Routing = () => {
                 <Route exact path="/campaign" component={Campaign} />
                 <Route exact path="/me" component={Me} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/reports" component={Reports} />
+                <Route exact path="/reports/:id" component={Reports} />
               </Fragment>
             )
           }

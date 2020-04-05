@@ -31,13 +31,11 @@ function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
       return (
-        <div>
           <CampaignContainer >
             <img src={ImgGroup} alt="Nome da Campanha" />
             <p>Nome da Campanha</p>
-            <input type="text" />
+            <input type="text" placeholder="Digite aqui o nome da sua campanha" />
           </CampaignContainer>
-        </div>
       );
     case 1:
       return (

@@ -5,7 +5,7 @@ class Register extends Component {
   render() {
     return (
       <Fragment>
-
+        
       </Fragment>
     )
   }

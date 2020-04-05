@@ -66,7 +66,7 @@ const Login = () => {
               id="user"
               value={values.user}
               type="text"
-              label="Usuário, E-mail ou Telefone" />
+              label="E-mail" />
 
               <StyledInput
               onChange={handleChange}

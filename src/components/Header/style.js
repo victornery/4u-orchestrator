@@ -10,16 +10,18 @@ export const StyledHeader = styled.header`
 	border: 1px solid #000000;
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	transition: .5s all;
 
-	${up('tablet')} {
+	@media (min-width: 768px) {
 		height: 40vh;
-	}
+		max-height: 40vh;
 
-	${props => props.smaller ? `
+		${props => props.smaller ? `
 		max-height: 200px;
     border: none;
     box-shadow: none;
 	` : ''}
+	}
 
 `
 // Style Menu Toggle

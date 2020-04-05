@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Profile = styled.div`
 	height: 95vh;
 	
-	img{
+	img {
 		display: flex;
 		position: relative;
 		margin: 0 auto;
 		padding-top: 30px;
 	}
-	p{
+	p {
 		font-size: 32px;
 		line-height: 59px;
 		color: #848484;
@@ -18,12 +18,12 @@ export const Profile = styled.div`
 		margin-bottom: 70px;
 	}
 
-	li{
+	li {
 		margin: 30px 0px;
 		list-style: none;
 	}
 
-	a{
+	a {
 		margin-left: 21px;
 		font-size: 30px;
 		line-height: 39px;
@@ -31,7 +31,7 @@ export const Profile = styled.div`
 		text-decoration: none;	
 	}
 
-	span{
+	span {
 		font-size: 16px;
 		line-height: 20px;
 		color: #918699;
@@ -47,7 +47,7 @@ export const Menu = styled.div`
 	height: 24px;
 	top: 5px;
 	
-	svg{
+	svg {
 		fill: #fff;
 		width: 30px;
 		height: 30px;

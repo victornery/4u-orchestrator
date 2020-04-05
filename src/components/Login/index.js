@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { LoginHolder, StyledInput } from './styles'

@@ -3,7 +3,6 @@ import { Route, useHistory, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Index from '@containers/index'
 import Campaign from '@containers/campaign'
-import CreateCampaign from '@containers/createCampaign'
 import Me from '@containers/me'
 import Register from '@containers/register'
 import Reports from '@containers/reports'
@@ -36,7 +35,7 @@ const Routing = () => {
     <Fragment>
       <Header isLogged={context.isLoggedIn} />
         <Main>
-          <Route path="/" component={Index} />
+          <Route exact path="/" component={Index} />
           {
             context.isLoggedIn && (
               <Fragment>

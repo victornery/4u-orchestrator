@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { up } from 'styled-breakpoints'
 
 export const StyledHeader = styled.header`
@@ -13,6 +14,13 @@ export const StyledHeader = styled.header`
 	${up('tablet')} {
 		height: 40vh;
 	}
+
+	${props => props.smaller ? `
+		max-height: 200px;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 80px;
+	` : ''}
 
 `
 // Style Menu Toggle
@@ -32,11 +40,17 @@ export const Menu = styled.div`
 export const UserHolder = styled.div``
 
 // Logo
-export const LogoHeader = styled.div`
+export const LogoHeader = styled(Link)`
 	position: absolute;
 	bottom: 0;
 	left: 50%;
 	transform: translate(-50%, 50%);
+	text-decoration: none;
+	transition: .5s all;
+
+	&:hover {
+		transform: translate(-50%, 50%) scale(1.1);
+	}
 `
 export const LogoBgPurple = styled.div`
 	width: 99px;

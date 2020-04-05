@@ -14,8 +14,10 @@ import {
 import Drawer from '@components/Drawer'
 import { ThemeContext } from '@context'
 import { transformMoney } from '@utils/money'
+import { Link } from 'react-router-dom'
+import Skeleton from '@material-ui/lab/Skeleton';
 
-const Header = ({ isLogged = false }) => {
+const Header = ({ isLogged = false, smaller = false }) => {
 
 	const context = useContext(ThemeContext)
 
@@ -27,20 +29,16 @@ const Header = ({ isLogged = false }) => {
 		let total = 0
 
 		if(money.length >= 1) {
-			console.log('wallet é maior ou igual que 1')
 			money.map(({ value }) => listMoney.push(parseFloat(value)))
-
 			total = listMoney.reduce(reducer)
-
 			return transformMoney(total)
 		}
 
 		return transformMoney(total)
 	}
 
-	console.log(context)
 	return (
-		<StyledHeader>
+		<StyledHeader smaller={smaller}>
 			{
 				!!isLogged && (
 					<Fragment>
@@ -53,7 +51,7 @@ const Header = ({ isLogged = false }) => {
 										<NumberCampaigns>Campanhas agendadas: 3</NumberCampaigns>
 										<ActiveCampaigns>
 											Campanhas Ativas: 3<br />
-											Saldo: {context && context.wallet !== {} && sumWallets(context.wallet)}
+											Saldo: {context && context.wallet ? sumWallets(context.wallet) : <Skeleton variant="text" /> }
 										</ActiveCampaigns>
 									</Fragment>
 								)
@@ -63,7 +61,7 @@ const Header = ({ isLogged = false }) => {
 					</Fragment>
 				)
 			}
-			<LogoHeader>
+			<LogoHeader to="/me">
 				<LogoBgWhite>
 					<LogoBgPurple>
 						<TextLogo>

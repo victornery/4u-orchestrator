@@ -9,21 +9,19 @@ export const logoffUser = async (context, history) => {
 }
 
 export const initializeWallet = (context, history, data) => {
-  console.log(data)
 
   API_BASE.get(`/wallets?companyUID=${data.companyUID ? data.companyUID : data.user.companyUID}`)
   .then(({ data }) => {
     context.setWallet(data);
   })
 
-  console.log(context);
 }
 
 export const initializeUser = async (context, history, data) => {
-  data.jwt ? localStorage.setItem('jwt', data.jwt) : ''
-  context.setLoading(false);
-  context.setLogged(true);
-  initializeWallet(context, history, data);
-  context.setUser(data.user ? data.user : data);
-  history.push('/me');
+  await data.jwt ? localStorage.setItem('jwt', data.jwt) : ''
+  await context.setLoading(false);
+  await context.setLogged(true);
+  await initializeWallet(context, history, data);
+  await context.setUser(data.user ? data.user : data);
+  await history.push('/me');
 }

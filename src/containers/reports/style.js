@@ -22,7 +22,7 @@ export const ContentReports = styled.div`
 	margin-bottom: 100px;
 	${up('tablet')} {
 			flex-direction: row;
-			margin-top: 105px;
+			margin-top: 60px;
 			justify-content: center;
 	}
 
@@ -41,27 +41,7 @@ export const Chart = styled.div`
 		margin-bottom: 20px;
 	}
 `
-export const PieChart = styled.div`
-	width: 362px;
-	height: 362px;
-	border-radius: 300px;
-	justify-content: center;
-	background: #C4C4C4;
-`
-export const ChartLegends = styled.div`
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	margin-top: 20px;
-	svg{
-		fill: #C4C4C4;
-		position: relative;
-	}
-	span{
-		margin-right: 10px;
-		color: #918699;
-	}
-`
+
 export const ColumnChart = styled.div`
 	width: 362px;
 	height: 362px;
@@ -80,13 +60,5 @@ export const ColumnChart = styled.div`
 	}
 	div:nth-child(3){
 		height: 341px;
-	}
-`
-export const LegendMetrics = styled.div`
-	display: flex;
-	div{
-		-webkit-transform: rotate(-50deg);
-		-ms-transform: rotate(-50deg);
-		transform: rotate(-50deg);
 	}
 `

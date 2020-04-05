@@ -2,7 +2,7 @@ import React from 'react'
 
 import { CreateCampaignContainer, ListButtons, Telephone } from './style'
 
-import ImgTelephone from '@assets/imgTelephone.png'
+import ImgTelephone from '@assets/imgTelephone.svg'
 import ImgText from '@assets/imgText.png'
 import imgGeneric from '@assets/imgGeneric.png'
 import ImgVideo from '@assets/imgVideo.png'

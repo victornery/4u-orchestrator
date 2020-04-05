@@ -5,6 +5,7 @@ export const CreateCampaignContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 150px 0 80px;
 `
 export const ListButtons = styled.div`
 	display: flex;

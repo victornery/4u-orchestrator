@@ -27,7 +27,7 @@ export const CampaignContainer = styled.div`
 		width: 800px;
 		height: 60px;
 		display: flex;
-		padding-left: 20px;
+		padding: 0 62px 0 38px;
 		background: #FFFFFF;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 10px;

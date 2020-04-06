@@ -144,8 +144,6 @@ class CreateCampaign extends Component {
       },
 		]
 
-		console.log(prevState.items, this.state.items)
-
 		if(this.state.items.length !== prevState.items.length) {
 			return this.setState({ items: initialItems })
 		} 
@@ -269,18 +267,19 @@ class CreateCampaign extends Component {
             )}
           </Droppable>
 						<button 
-						disabled={this.state.selected.length === 0} 
-						style={{ 
-							position: 'absolute', 
-							bottom: 49, 
-							left: 296, 
-							cursor: this.state.selected.length === 0 ? 'not-allowed' : 'pointer', 
-							filter: this.state.selected.length === 0 ? 'grayscale(1)' : '' 
-						}}
-						onClick={() => {
-							context.setCampaign({ items: this.state.selected });
-							history.push('/campaign')
-						}}>
+              disabled={this.state.selected.length === 0} 
+              style={{ 
+                position: 'absolute', 
+                bottom: 49, 
+                left: 296, 
+                cursor: this.state.selected.length === 0 ? 'not-allowed' : 'pointer', 
+                filter: this.state.selected.length === 0 ? 'grayscale(1)' : '' 
+              }}
+              onClick={() => {
+                context.setCampaign({ items: this.state.selected });
+                history.push('/campaign')
+              }}
+            >
 							<img src={Send} />
 						</button>
 					</Telephone>

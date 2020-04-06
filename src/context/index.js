@@ -1,7 +1,7 @@
 import React, { Component, createContext } from 'react'
 
 export const initialState = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   isLoading: false,
   isLoginError: false,
   user: {

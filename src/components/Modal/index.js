@@ -8,6 +8,7 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
 import { API_BASE } from '@utils/requests'
 import { ThemeContext } from '@context'
 import { transformBase64 } from '@utils/files'
+import * as uuid4 from 'uuid4'
 
 import { ModalContent, InputModal, LineMidia, HeadModal } from './style'
 
@@ -28,8 +29,10 @@ const useStyles = makeStyles((theme) => ({
 export default function TransitionsModal({ isMidia = false, isTable = false, title, data, setNewData }) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
-    media: {},
-    messages: {}
+    media: [],
+    messages: [],
+    list: [],
+    listTest: [],
   });
   
   const context = useContext(ThemeContext);
@@ -54,23 +57,25 @@ export default function TransitionsModal({ isMidia = false, isTable = false, tit
     }
   }
 
-  const handleChange = async ({ target: { files }}) => {
+  const handleChange = async ({ target: { files }}, id) => {
     const file = files[0]
+    const result = await transformBase64(file);
 
-    await transformBase64(file);
+    return result
   }
 
 
-const MediaField = ({ handleChange }) => (<div>
-  <span>
-    Clique aqui para adicionar uma mídia
-    <small>* até 30mb</small>
-  </span>
-  <input
-    onChange={handleChange}
-    accept="image/*,application/pdf,application/msword,audio/mp3,video/mp4"
-    type="file"
-  />
+const MediaField = ({ handleChange }) => (
+  <div data-id={uuid4()}>
+    <span>
+      Clique aqui para adicionar uma mídia
+      <small>* até 30mb</small>
+    </span>
+    <input
+      onChange={(e) => handleChange(e, uuid4())}
+      accept="image/*,application/pdf,application/msword,audio/mp3,video/mp4"
+      type="file"
+    />
 </div>)
 
 
